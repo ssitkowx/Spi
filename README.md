@@ -1,7 +1,7 @@
-# Template
+# Spi
 
 # I. Description:
-Template for projects and packages.
+General class for spi.
 
 # II. Assumption:
 The code stored here is a generic code, which means:
