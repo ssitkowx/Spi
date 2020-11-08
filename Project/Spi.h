@@ -10,15 +10,21 @@
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
+template <class DERIVED_TYPE>
 class Spi
 {
-    public:
-        Spi          () = default;
-        virtual ~Spi () = default;
+    friend DERIVED_TYPE;
+    DERIVED_TYPE & derivedType = static_cast <DERIVED_TYPE &> (*this);
 
-        virtual void     Send    (const uint8_t  * const v_data, const uint16_t v_len) = 0;
-        virtual void     Send    (const uint16_t * const v_data, const uint16_t v_len) = 0;
-        virtual uint16_t Receive (uint8_t        *       v_data)                       = 0;
+    public:
+        Spi () = default;
+
+        void     Send    (const uint8_t  * const v_data, const uint16_t v_len) { derivedType.Send (v_data, v_len);    }
+        void     Send    (const uint16_t * const v_data, const uint16_t v_len) { derivedType.Send (v_data, v_len);    }
+        uint16_t Receive (uint8_t        *       v_data)                       { return derivedType.Receive (v_data); }
+
+    private:
+        ~Spi () = default;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
