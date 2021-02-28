@@ -11,11 +11,11 @@
 /////////////////////////// CLASSES/STRUCTURES ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-class SpiMock final : public Spi
+class SpiHw final : public Spi
 {
     public:
-        SpiMock () = default;
-        ~SpiMock () = default;
+        SpiHw () = default;
+        ~SpiHw () = default;
 
         MOCK_METHOD2 (Send   , void (const uint8_t * const v_data, const uint16_t v_len));
         MOCK_METHOD2 (Send   , void (const uint16_t * const v_data, const uint16_t v_len));
