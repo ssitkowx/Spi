@@ -19,9 +19,9 @@ class Spi
     public:
         Spi () = default;
 
-        void     Send    (const uint8_t  * const v_data, const uint16_t v_len) { derivedType.Send (v_data, v_len);    }
-        void     Send    (const uint16_t * const v_data, const uint16_t v_len) { derivedType.Send (v_data, v_len);    }
-        uint16_t Receive (uint8_t        *       v_data)                       { return derivedType.Receive (v_data); }
+        void     Send    (const uint8_t  * const vData, const uint16_t vLen) { derivedType.Send (vData, vLen);    }
+        void     Send    (const uint16_t * const vData, const uint16_t vLen) { derivedType.Send (vData, vLen);    }
+        uint16_t Receive (uint8_t        *       vData)                      { return derivedType.Receive (vData); }
 
     private:
         ~Spi () = default;
